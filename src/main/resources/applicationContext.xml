@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx"
     xsi:schemaLocation="http://www.springframework.org/schema/beans 
     http://www.springframework.org/schema/beans/spring-beans.xsd 
     http://www.springframework.org/schema/context 
-    http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     
-     <context:component-scan base-package="com.revature"></context:component-scan>
-     
-    <!-- <bean name="user"    class="com.revature.beans.User">
-    <property name="account" ref="account"></property>
-    </bean>
-    
-    <bean name="account" class="com.revature.beans.Account"/> -->
+    <aop:aspectj-autoproxy />
+	<context:annotation-config />
+	<mvc:annotation-driven></mvc:annotation-driven>
+		<!-- Enable @Transactional -->
+	<tx:annotation-driven />
+	
+	<context:component-scan
+		base-package="com.revature" />
+		
+		<!-- DataSource (JDBC) -->
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<!-- Remember to try to pull these from environment variables -->
+		<property name="url" value= "#{systemEnvironment['QUIZ_URL']}" />
+		<property name="username" value ="#{systemEnvironment['QUIZ_USERNAME']}"/>
+		<property name="password" value = "#{systemEnvironment['QUIZ_PASSWORD']}"/>
+	</bean>
+	
+	<!-- SessionFactory (Hibernate) -->
+	<bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<!-- Manually Injecting DataSource -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- Annotation Mapping -->
+		<property name="packagesToScan" value="com.revature.model" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- TransactionManager (Hibernate) -->
+	<!-- Makes all sessions transactions -->
+	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<!-- Manually Injection SessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
      
      
 </beans> 
