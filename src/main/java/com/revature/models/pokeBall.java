@@ -5,7 +5,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="PokeBall")
-public class pokeBall {
+public class PokeBall {
 	
 	
 

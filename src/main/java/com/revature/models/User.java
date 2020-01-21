@@ -37,7 +37,7 @@ public class User {
 	private int balance;
 	
 	@Column 
-	private List<pokeBall> pokeball;
+	private List<PokeBall> pokeball;
 
 	public User() {
 		super();
@@ -45,7 +45,7 @@ public class User {
 	}
 
 	public User(int id, String firstName, String lastName, String username, String password, int balance,
-			List<pokeBall> pokeball) {
+			List<PokeBall> pokeball) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -123,11 +123,11 @@ public class User {
 		this.balance = balance;
 	}
 
-	public List<pokeBall> getPokeball() {
+	public List<PokeBall> getPokeball() {
 		return pokeball;
 	}
 
-	public void setPokeball(List<pokeBall> pokeball) {
+	public void setPokeball(List<PokeBall> pokeball) {
 		this.pokeball = pokeball;
 	}
 
