@@ -21,4 +21,4 @@ import { NgModule } from '@angular/core';
         BallPurchaseService
     ]
 })
-export class ShopModule ()
+export class ShopModule{} 
