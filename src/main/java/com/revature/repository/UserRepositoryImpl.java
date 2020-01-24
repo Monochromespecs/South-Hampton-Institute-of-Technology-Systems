@@ -25,12 +25,6 @@ public class UserRepositoryImpl {
 		
 	}
 
-	@Transactional
-	public static void editMoney(User u) {
-		Session s = sf.getCurrentSession();
-		s.update(u);
-		
-	}
 
 	@Transactional
 	public static User getById(int	id) {

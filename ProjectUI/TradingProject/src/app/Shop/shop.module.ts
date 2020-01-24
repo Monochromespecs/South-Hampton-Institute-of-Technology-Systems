@@ -1,4 +1,4 @@
-import { ShopContainerComponent } from "./component/shop-container/shop-container.component";
+import { ShopContainerComponent } from './component/shop-container/shop-container.component';
 import { ShopFormComponent } from './component/shop-form/shop-form.component';
 import { ShopRoutingModule } from './shop-routing.module';
 import { CommonModule } from '@angular/common';
@@ -21,4 +21,4 @@ import { NgModule } from '@angular/core';
         BallPurchaseService
     ]
 })
-export class ShopModule ()
+export class ShopModule { }

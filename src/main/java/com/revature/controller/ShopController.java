@@ -12,11 +12,13 @@ import com.revature.repository.UserRepositoryImpl;
 @Controller
 public class ShopController {
 	
+	
+	//This method will receive a new user with added pokeballs after a successful purchase. 
 	@PutMapping("/shop/ball_purchase")
 	@ResponseBody
-	public ResponseEntity<User> pokeBallPurchase(@RequestBody User u){
-		return ResponseEntity.ok(UserRepositoryImpl.addPokeballs(u));;
-		
+	public ResponseEntity<Object> pokeBallPurchase(@RequestBody User u){
+		UserRepositoryImpl.addPokeballs(u);
+		return ResponseEntity.ok().build();
 	}
 
 }
