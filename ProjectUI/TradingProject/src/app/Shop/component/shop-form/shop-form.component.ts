@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-shop-form',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop-form.component.css']
 })
 export class ShopFormComponent implements OnInit {
+
+  @Output('anythingIWant') formSubmitEmitter: EventEmitter<ShopForm> = new EventEmitter<ShopForm>;
+
+  user_id: number;
+  type: string;
+  quantity: number;
+
 
   constructor() { }
 

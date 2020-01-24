@@ -5,16 +5,16 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
     {
-        path: 'shop',
+        path: '/shop',
         component: ShopContainerComponent
     }
-]
+];
 
 @NgModule({
-    imports:[
+    imports: [
         RouterModule.forChild(routes)
     ],
-    exports:[
+    exports: [
         RouterModule
     ]
 })

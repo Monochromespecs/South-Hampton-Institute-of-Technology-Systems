@@ -1,1 +1,12 @@
-<p>shop-container works!</p>
+<div class="shopContainer">
+    <p>Welcome to the Shop!</p>
+    <p>Select which PokeBall you wish to Purchase</p>
+    <div class="card-body">
+      <p>{{currentShopper.balance}}</p>
+        <shop-form
+          (anythingIWant)="handlePurchase($event)"
+        >
+        </shop-form>
+      </div>
+
+</div>
