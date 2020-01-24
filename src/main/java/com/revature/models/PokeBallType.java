@@ -3,11 +3,13 @@ package com.revature.models;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +19,7 @@ public class PokeBallType implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
+	@OneToMany(mappedBy= "type", cascade = CascadeType.ALL)
 	private int id;
 
 	@Column
@@ -27,6 +30,7 @@ public class PokeBallType implements Serializable{
 
 	public PokeBallType() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public PokeBallType(int id, String type, float catchBoost) {
@@ -36,28 +40,9 @@ public class PokeBallType implements Serializable{
 		this.catchBoost = catchBoost;
 	}
 
-	public synchronized int getId() {
-		return id;
-	}
-
-	public synchronized void setId(int id) {
-		this.id = id;
-	}
-
-	public synchronized String getType() {
-		return type;
-	}
-
-	public synchronized void setType(String type) {
-		this.type = type;
-	}
-
-	public synchronized float getCatchBoost() {
-		return catchBoost;
-	}
-
-	public synchronized void setCatchBoost(float catchBoost) {
-		this.catchBoost = catchBoost;
+	@Override
+	public String toString() {
+		return "PokeBallType [id=" + id + ", type=" + type + ", catchBoost=" + catchBoost + "]";
 	}
 
 	@Override
@@ -78,10 +63,29 @@ public class PokeBallType implements Serializable{
 				&& Objects.equals(type, other.type);
 	}
 
-	@Override
-	public String toString() {
-		return "PokeBallType [id=" + id + ", type=" + type + ", catchBoost=" + catchBoost + "]";
+	public int getId() {
+		return id;
 	}
-	
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public float getCatchBoost() {
+		return catchBoost;
+	}
+
+	public void setCatchBoost(float catchBoost) {
+		this.catchBoost = catchBoost;
+	}
+
 	
 }

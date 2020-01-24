@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { BallPurchaseService } from './service/ball-purchase.service';
 import { NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import { HttpClient } from '@angular/common/http';
         FormsModule
     ],
     providers: [
+        BallPurchaseService,
+        AuthService,
         BallPurchaseService
     ]
 })

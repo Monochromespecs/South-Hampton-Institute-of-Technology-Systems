@@ -9,6 +9,7 @@ import { ShopContainerComponent } from './shop/component/shop-container/shop-con
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BallPurchaseService } from './shop/service/ball-purchase.service';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -28,7 +29,8 @@ import { BallPurchaseService } from './shop/service/ball-purchase.service';
     AppRoutingModule
   ],
   providers: [
-    BallPurchaseService
+    BallPurchaseService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -10,7 +10,7 @@ export class ShopFormComponent implements OnInit {
 
   @Output('anythingIWant') formSubmitEmitter: EventEmitter<ShopForm> = new EventEmitter<ShopForm>;
 
-  user_id: number;
+  userId: number;
   type: string;
   quantity: number;
 
