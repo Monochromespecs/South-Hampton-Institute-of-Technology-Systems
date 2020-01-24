@@ -8,8 +8,13 @@ import { EventEmitter } from 'protractor';
 })
 export class ShopFormComponent implements OnInit {
 
-  @Output('anythingIWant') formSubmitEmitter: EventEmitter<ShopForm> = new EventEmitter<ShopForm>\
-  
+  @Output('anythingIWant') formSubmitEmitter: EventEmitter<ShopForm> = new EventEmitter<ShopForm>;
+
+  user_id: number;
+  type: string;
+  quantity: number;
+
+
   constructor() { }
 
   ngOnInit() {
