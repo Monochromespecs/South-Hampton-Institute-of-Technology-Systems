@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShopContainerComponent } from './Shop/component/shop-container/shop-container.component';
 
 
 const routes: Routes = [
   {
-    path: 'shop',
+    path: '/shop',
 
     loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule)
 }
