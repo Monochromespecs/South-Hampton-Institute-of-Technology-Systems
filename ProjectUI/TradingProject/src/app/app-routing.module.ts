@@ -6,7 +6,6 @@ import { ShopContainerComponent } from './Shop/component/shop-container/shop-con
 const routes: Routes = [
   {
     path: 'shop',
-
     loadChildren: () => import('./shop/shop.module').then(mod => mod.ShopModule)
 }
 ];
