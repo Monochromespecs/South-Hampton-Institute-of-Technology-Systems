@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ReplaySubject } from 'rxjs';
+import { ReplaySubject, Subject } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppUser } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
