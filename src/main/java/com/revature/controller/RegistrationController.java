@@ -33,7 +33,6 @@ public class RegistrationController {
 		  model.addAttribute("message", "You have been logged out.");
 	  }
 	  return "login";
-
   }
   
 }
