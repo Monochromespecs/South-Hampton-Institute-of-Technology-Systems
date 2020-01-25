@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,3 +24,10 @@ export interface ShopperInfo{
     username: string;
     balance: 0;
 }
+
+export interface ShopForm{
+    
+
+
+}
+

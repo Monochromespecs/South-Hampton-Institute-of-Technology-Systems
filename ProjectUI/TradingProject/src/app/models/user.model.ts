@@ -1,3 +1,6 @@
+import { Pokemon } from './pokemon.model';
+
+
 export class AppUser {
 
     constructor(
@@ -7,7 +10,7 @@ export class AppUser {
         public username = '',
         public password = '',
         public balance = 0,
-        public pokemon = pokemon[pokemon]
+        public pokemon = new Pokemon(),
     ) {}
     
 }
