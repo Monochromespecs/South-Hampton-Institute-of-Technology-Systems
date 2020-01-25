@@ -3,11 +3,13 @@ package com.revature.models;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,7 +21,7 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="userIdGenerator")
 	@SequenceGenerator(name="userIdGenerator", sequenceName="user_id_sequence", allocationSize=1)
 	@Column(name="user_id")
-	private int id;
+	private int user_id;
 	
 	@Column
 	private String firstName;
@@ -36,7 +38,8 @@ public class User {
 	@Column
 	private int balance;
 	
-	@Column 
+	@Column
+	@OneToMany(mappedBy="user_id", cascade = CascadeType.ALL)
 	private List<PokeBall> pokeball;
 
 	public User() {
@@ -44,10 +47,10 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String firstName, String lastName, String username, String password, int balance,
+	public User(int user_id, String firstName, String lastName, String username, String password, int balance,
 			List<PokeBall> pokeball) {
 		super();
-		this.id = id;
+		this.user_id = user_id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
@@ -58,7 +61,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(balance, firstName, id, lastName, password, pokeball, username);
+		return Objects.hash(balance, firstName, lastName, password, pokeball, user_id, username);
 	}
 
 	@Override
@@ -70,17 +73,18 @@ public class User {
 			return false;
 		}
 		User other = (User) obj;
-		return balance == other.balance && Objects.equals(firstName, other.firstName) && id == other.id
+		return balance == other.balance && Objects.equals(firstName, other.firstName)
 				&& Objects.equals(lastName, other.lastName) && Objects.equals(password, other.password)
-				&& Objects.equals(pokeball, other.pokeball) && Objects.equals(username, other.username);
+				&& Objects.equals(pokeball, other.pokeball) && user_id == other.user_id
+				&& Objects.equals(username, other.username);
 	}
 
-	public int getId() {
-		return id;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getFirstName() {
@@ -133,10 +137,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ ", password=" + password + ", balance=" + balance + ", pokeball=" + pokeball + "]";
+		return "User [user_id=" + user_id + ", firstName=" + firstName + ", lastName=" + lastName + ", username="
+				+ username + ", password=" + password + ", balance=" + balance + ", pokeball=" + pokeball + "]";
 	}
-	
-	
-
 }
