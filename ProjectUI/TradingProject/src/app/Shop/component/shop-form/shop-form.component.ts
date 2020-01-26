@@ -1,6 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-
-
 @Component({
   selector: 'app-shop-form',
   templateUrl: './shop-form.component.html',
@@ -8,9 +6,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ShopFormComponent implements OnInit {
 
+  // tslint:disable-next-line: no-output-rename
   @Output('anythingIWant') formSubmitEmitter: EventEmitter<ShopForm> = new EventEmitter<ShopForm>;
 
-  user_id: number;
+  userId: number;
   type: string;
   quantity: number;
 

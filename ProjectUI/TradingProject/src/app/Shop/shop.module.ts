@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BallPurchaseService } from './service/ball-purchase.service';
 import { NgModule } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 
 
@@ -14,11 +15,13 @@ import { AuthService } from '../services/auth.service';
         ShopFormComponent
     ],
     imports: [
+        HttpClient,
         ShopRoutingModule,
         CommonModule,
         FormsModule
     ],
     providers: [
+        BallPurchaseService,
         AuthService,
         BallPurchaseService
     ]

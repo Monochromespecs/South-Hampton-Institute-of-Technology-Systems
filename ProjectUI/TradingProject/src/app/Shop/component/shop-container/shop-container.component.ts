@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AuthService } from "../../../services/auth.service";
-import { ShopService } from "../../service/ball-purchase.service";
+import { AuthService } from 'src/app/services/auth.service';
+import { BallPurchaseService } from '../../service/ball-purchase.service';
 
 @Component({
   selector: 'app-shop-container',
@@ -23,7 +23,7 @@ export class ShopContainerComponent implements OnInit {
 
   //need the name of the service to update this method
   ngOnInit() {
-    this.userSubscription = this.authService.$currentShopper.subscribe(user => {
+    this.userSubscription = this.shopperService.$currentShopper.subscribe(user => {
       this.currentShopper = user;
     });
   }
