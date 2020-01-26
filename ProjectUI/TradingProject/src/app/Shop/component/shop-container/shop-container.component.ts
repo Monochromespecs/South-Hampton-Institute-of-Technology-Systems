@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from "../../../services/auth.service";
+import { ShopService } from "../../service/ball-purchase.service";
 
 @Component({
   selector: 'app-shop-container',
@@ -13,7 +15,10 @@ export class ShopContainerComponent implements OnInit {
       balance: 0
     }
     userSubscription: Subscription;
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private shopService: ShopService,
+    ) { }
 
 
   //need the name of the service to update this method

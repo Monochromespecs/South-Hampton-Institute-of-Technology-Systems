@@ -1,5 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-shop-form',
@@ -14,10 +14,17 @@ export class ShopFormComponent implements OnInit {
   type: string;
   quantity: number;
 
-
+  salePrice: number;
   constructor() { }
 
   ngOnInit() {
   }
 
+  completePurchase() {
+    this.formSubmitEmitter.emit({user_id: this.user_id, type: this.type, quantity: this.quantity });
+  }
+
+  updateBalance() {
+    this.formSubmitEmitter.emit({user_id: this.user_id});
+  }
 }

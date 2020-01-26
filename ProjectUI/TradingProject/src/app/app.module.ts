@@ -7,6 +7,7 @@ import { ShopFormComponent } from './Shop/component/shop-form/shop-form.componen
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeContainerComponent } from './components/home-container/home-container.component';
 import { ShopContainerComponent } from './shop/component/shop-container/shop-container.component';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -23,7 +24,9 @@ import { ShopContainerComponent } from './shop/component/shop-container/shop-con
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
