@@ -12,5 +12,4 @@ export class AppUser {
         public balance = 0,
         public pokemon = new Pokemon(),
     ) {}
-    
 }

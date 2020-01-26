@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService, UserInfo } from 'src/app/auth.service';
+import { AuthService, UserInfo } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class LoginService {
   ) { }
 
   attemptLogin(form: LoginForm) {
-    this.http.post<UserInfo>("http://localhost:8080/ERSDemo/api/login", form).subscribe(
+    this.http.post<UserInfo>("http://localhost:8080/PokeProject/login", form).subscribe(
       data => {
         this.authService.setCurrentUser(data);
         this.router.navigateByUrl("/home");

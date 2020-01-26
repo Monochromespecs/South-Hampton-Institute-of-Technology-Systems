@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { AppUser } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BallPurchaseService {
 
-  private currentShopperStream = new ReplaySubject<AppUser>(1);
+  private currentShopperStream = new ReplaySubject< >(1);
   $currentShopper = this.currentShopperStream.asObservable();
 
   setCurrentShopper(shopperInfo: ShopperInfo): void {
