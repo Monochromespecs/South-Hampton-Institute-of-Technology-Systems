@@ -11,22 +11,26 @@ export class BallPurchaseService {
   $currentShopper = this.currentShopperStream.asObservable();
 
   setCurrentShopper(shopperInfo: ShopperInfo): void {
-    this.currentShopper$.next(shopperInfo);
+    this.$currentShopper.next(shopperInfo);
   }
 
   getCurrentShopper(): Observable<ShopperInfo> {
-    return this.currentShopper$.asObservable();
+    return this.$currentShopper.asObservable();
   }
 
 
 }
-export interface ShopperInfo{
+export interface ShopperInfo {
     username: string;
     balance: 0;
 }
 
-export interface ShopForm{
-    
+export interface ShopForm {
+  userId: number;
+  type: string;
+  quantity: number;
+
+  salePrice: number;
 
 
 }

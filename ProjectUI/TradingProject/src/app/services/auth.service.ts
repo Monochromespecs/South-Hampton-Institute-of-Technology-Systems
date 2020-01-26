@@ -9,11 +9,12 @@ import { AppUser } from '../models/user.model';
 })
 export class AuthService {
 
-  private currentUserStream = new ReplaySubject<AppUser>(1);
-  $currentUser = this.currentUserStream.asObservable();
+  private currentShopperStream = new ReplaySubject<AppUser>(1);
+  $currentShopper = this.currentShopperStream.asObservable();
 
   private loginErrorStream = new Subject<string>();
   $loginError = this.loginErrorStream.asObservable();
+  currentShopper$: any;
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
@@ -23,10 +24,10 @@ export class AuthService {
       data => {
         console.log('logged in');
         console.log(data);
-        this.currentUserStream.next(data);
+        this.currentShopperStream.next(data);
       },
       err => {
-        console.log('not currently logged in')
+        console.log('not currently logged in');
       }
     );
   }
@@ -38,7 +39,7 @@ export class AuthService {
       data => {
         console.log('logged in');
         this.router.navigateByUrl('/pokemon');
-        this.currentUserStream.next(data);
+        this.currentShopperStream.next(data);
       },
       err => {
         console.log(err);
