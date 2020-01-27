@@ -1,0 +1,13 @@
+<div class="card ">
+    <div class="card-header text-center">
+        Name: {{pokemon.name}}
+    </div>
+    <ul class="pokemon-info-toggle list-group list-group-flush" (click)="toggleInfo()">
+        <li class="list-group-item">Info</li>
+    </ul>
+    <div class="card-body" *ngIf="infoToggled">
+        <p>Challenge: {{pokemon.challenge}}</p>
+        <p>Value: {{pokemon.value}}</p>
+        <p>Stat total: {{pokemon.stats}}</p>
+    </div>
+</div>
