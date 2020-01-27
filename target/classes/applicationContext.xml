@@ -29,9 +29,9 @@
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<!-- Remember to try to pull these from environment variables -->
-		<property name="url" value= "#{systemEnvironment['QUIZ_URL']}" />
-		<property name="username" value ="#{systemEnvironment['QUIZ_USERNAME']}"/>
-		<property name="password" value = "#{systemEnvironment['QUIZ_PASSWORD']}"/>
+		<property name="url" value= "#{oraclebd-1.cxc7vkrsynje.us-east-1.rds.amazonaws.com}" />
+		<property name="username" value ="admin"/>
+		<property name="password" value = "admin12345"/>
 	</bean>
 	
 	<!-- SessionFactory (Hibernate) -->
