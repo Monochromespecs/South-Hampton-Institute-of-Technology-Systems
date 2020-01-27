@@ -11,20 +11,20 @@ import { ShopService } from 'src/app/services/shop.service';
 })
 export class ShopContainerComponent implements OnInit {
 
-    currentShopper = {
-      username: '',
-      balance: 0
-    };
-    userSubscription: Subscription;
+  currentShopper = {
+    username: '',
+    balance: 0
+  };
+  userSubscription: Subscription;
   constructor(
     private authService: AuthService,
-    private shopService: ShopService,
-    ) { }
+    private shopService: BallPurchaseService,
+  ) { }
 
 
   // need the name of the service to update this method
   ngOnInit() {
-    this.userSubscription = this.authService.$currentShopper.subscribe(user => {
+    this.userSubscription = this.shopService.currentShopper$.subscribe(user => {
       this.currentShopper = user;
     });
   }

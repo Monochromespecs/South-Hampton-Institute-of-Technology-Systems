@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, UserInfo } from 'src/app/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home-container',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeContainerComponent implements OnInit {
 
-  constructor() { }
+  currentUser$: Observable<UserInfo> = this.authService.getCurrentUser();
+
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
   }
