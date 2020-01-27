@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BallPurchaseService } from './shop/service/ball-purchase.service';
 import { AuthService } from './services/auth.service';
+import { PokemonComponent } from './box/pokemon/pokemon.component';
+import { BoxComponent } from './box/box/box.component';
 
 
 
@@ -17,7 +19,9 @@ import { AuthService } from './services/auth.service';
     AppComponent,
     ShopContainerComponent,
     NavBarComponent,
-    HomeContainerComponent
+    HomeContainerComponent,
+    PokemonComponent,
+    BoxComponent
 
   ],
   imports: [
