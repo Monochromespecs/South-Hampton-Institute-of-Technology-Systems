@@ -5,6 +5,6 @@ export class Pokemon {
         public challengeRating = 0,
         private value = 0,
         //need to add the object for pokemon stats based from PokeApi. 
-        private stats = new PokeStats
+        private stats = 0,
     ) {}
 }
