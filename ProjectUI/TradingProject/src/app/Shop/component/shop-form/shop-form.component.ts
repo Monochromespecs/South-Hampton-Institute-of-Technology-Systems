@@ -16,6 +16,19 @@ export class ShopFormComponent implements OnInit {
 
   salePrice: number;
   constructor() { }
+  pokeBall = 0;
+  greatBall = 0;
+  ultraBall = 0;
+
+  buyPokeBall(): void {
+    this.pokeBall++;
+  }
+  buyGreatBall(): void {
+    this.greatBall++;
+  }
+  buyUltraBall(): void {
+    this.ultraBall++;
+  }
 
   ngOnInit() {
   }
